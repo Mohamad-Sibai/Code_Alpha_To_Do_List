@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url("white-paper-texture.jpg");
+    background-repeat: no-repeat;
+}
+#container {
+    border: 2px solid #003740;
+    border-radius: 8px;
+    backdrop-filter: blur(5px); /* Glass-like blur effect */
+    padding: 20px;
+    width: 350px;
+    min-height: 500px;
+    text-align: center;
+}
+#input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#todo-input{
+    width: 100%;
+    border-radius: 50px;
+    height: 2rem;
+    padding-left: 10px;
+    background-color: transparent;
+}
+h1 {
+    font-family: 'Libre Baskerville', serif;
+}
+#list-container {
+    display: flex;          
+    flex-direction: column;  
+    align-items: flex-start; 
+    padding: 0;             
+    margin-left: 20px;              
+}
+
+#list-container li {
+    list-style: none;        
+    padding: 12px 8px;      
+    margin: 0;                
+    cursor: pointer;         
+    color: #003740;
+    font-weight: bold;
+}
+
+.task-checkbox {
+    width: 20px; /* Set the width of the checkbox */
+    height: 20px; /* Set the height of the checkbox */
+    border-radius: 50%; /* Make the checkbox circular */
+    margin-right: 10px; /* Space between checkbox and text */
+    appearance: none; /* Remove default checkbox styles */
+    background-color: #fff; /* Set background color */
+    border: 2px solid #003740; /* Set border color */
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle; /* Align vertically with text */
+}
+
+.task-checkbox:checked {
+    background-color: #003740; /* Background color when checked */
+    border: 2px solid #003740; /* Border color when checked */
+}
+
+.task-checkbox:checked::after {
+    content: '✓'; /* Checkmark symbol */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Checkmark color */
+    font-size: 14px; /* Checkmark size */
+}
+
+.task-text {
+    flex: 1;
+    vertical-align: middle; /* Align text vertically with checkbox */
+}
+
+.task-checkbox:checked + .task-text {
+    text-decoration: line-through;
+    color: #aaa; /* Optional: Change text color when checked */
+}

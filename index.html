@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Todo list</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Todo list</h1>
+        <div id="input-container">
+            <input id="todo-input" placeholder="Add a new task..." />
+            <img id="add-button" src="add.png" alt="add-button" style="height: 30px;width: 30px;margin-left: 5px;cursor: pointer;" />
+        </div>
+        <div id="image-container">
+            <img id="illustration" src="illustration.png" style="height: 100px;width: 100px;" />
+        </div>
+        <ul id="list-container">
+            
+        </ul>
+    </div>
+
+    <script>
+        const inputBox = document.getElementById("todo-input");
+        const listContainer = document.getElementById("list-container");
+        const addButton = document.getElementById("add-button");
+        const illustration = document.getElementById("illustration");
+
+        function addTask() {
+            if (inputBox.value.trim() === '') {
+                alert("You must write something!");
+                return;
+            }
+
+            let li = document.createElement("li");
+
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.className = "task-checkbox";
+
+            let span = document.createElement("span");
+            span.textContent = inputBox.value;
+            span.className = "task-text";
+
+            li.appendChild(checkbox);
+            li.appendChild(span);
+
+            listContainer.appendChild(li);
+
+            inputBox.value = '';
+        }
+
+        addButton.addEventListener("click", addTask);
+
+        inputBox.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                addTask();
+            }
+        });
+
+        illustration.addEventListener("click", addTask);
+    </script>
+</body>
+</html>
